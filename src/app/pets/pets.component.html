@@ -1,0 +1,8 @@
+
+
+    <ion-list [inset]="true" >
+      <ion-item *ngFor="let pet of pets">
+        <ion-label>{{pet.nombre}}</ion-label>
+      </ion-item>
+    </ion-list>
+    <ion-button (click)="nextpage()" fill="outline">Agregar Mascota</ion-button>

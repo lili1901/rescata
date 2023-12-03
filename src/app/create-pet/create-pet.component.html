@@ -1,0 +1,62 @@
+<form [formGroup]="petForm" (ngSubmit)="submitForm()" novalidate>
+    <ion-item lines="full">
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input
+          formControlName="nombre"
+          type="text"
+          aria-label="Name"
+        ></ion-input>
+    </ion-item>
+    <div *ngIf="this.petForm.controls?.['nombre']?.['touched'] && this.petForm.controls?.['nombre']?.['invalid']">
+      <div class="ion-padding" *ngIf="this.petForm.controls?.['nombre']?.['errors']?.['required']">
+        <ion-text color="danger">Nombre es requerido.</ion-text>
+      </div>
+      <div class="ion-padding" color="danger" *ngIf="this.petForm.controls?.['nombre']?.errors?.['minlength']">
+        <ion-text color="danger">Nombre debe ser mayor a dos caracteres.</ion-text>
+      </div>
+    </div>
+    <ion-item lines="full">
+        <ion-label position="floating">Especie</ion-label>
+        <ion-input
+          formControlName="especie"
+          type="text"
+          aria-label="Especie"
+        ></ion-input>
+    </ion-item>
+    <div *ngIf="this.petForm.controls?.['especie']?.['touched'] && this.petForm.controls?.['especie']?.['invalid']">
+      <div class="ion-padding" *ngIf="this.petForm.controls?.['especie']?.['errors']?.['required']">
+        <ion-text color="danger">Especie es requerido.</ion-text>
+      </div>
+      <div class="ion-padding" color="danger" *ngIf="this.petForm.controls?.['especie']?.errors?.['minlength']">
+        <ion-text color="danger">Especie debe ser mayor a dos caracteres.</ion-text>
+      </div>
+    </div>
+    <ion-item lines="full">
+        <ion-label position="floating">Color</ion-label>
+        <ion-input
+          formControlName="color"
+          type="text"
+          aria-label="Color"
+        ></ion-input>
+    </ion-item>
+    <div *ngIf="this.petForm.controls?.['color']?.['touched'] && this.petForm.controls?.['color']?.['invalid']">
+      <div class="ion-padding" *ngIf="this.petForm.controls?.['color']?.['errors']?.['required']">
+        <ion-text color="danger">Color es requerido.</ion-text>
+      </div>
+      <div class="ion-padding" color="danger" *ngIf="this.petForm.controls?.['color']?.errors?.['minlength']">
+        <ion-text color="danger">Color debe ser mayo a dos caracteres.</ion-text>
+      </div>
+    </div>
+    <ion-item>
+      <ion-label>Selecciona:</ion-label>
+      <input type="file" (change)="onFileSelected($event)">
+    </ion-item>    
+    <ion-row>
+        <ion-col>
+          <ion-button type="submit" color="primary" expand="block">Enviar</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button (click)="nextpage()" fill="outline" expand="block">Regresar</ion-button>
+        </ion-col>
+    </ion-row>
+</form>
